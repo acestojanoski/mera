@@ -1,0 +1,17 @@
+[
+  {
+    "id": "neapolitan-pizza-dough",
+    "name": "Neapolitan Pizza Dough",
+    "description": "Poolish-based dough. Mix the poolish ingredients and ferment, then add the main dough ingredients.",
+    "yield": { "quantity": 10, "unit": "pizzas" },
+    "ingredients": [
+      { "name": "Water (poolish)", "quantity": 300, "unit": "ml" },
+      { "name": "Flour (poolish)", "quantity": 300, "unit": "g" },
+      { "name": "Dry yeast (poolish)", "quantity": 5, "unit": "g" },
+      { "name": "Honey (poolish)", "quantity": 5, "unit": "g" },
+      { "name": "Water (main dough)", "quantity": 700, "unit": "ml" },
+      { "name": "Flour (main dough)", "quantity": 1250, "unit": "g" },
+      { "name": "Salt (main dough)", "quantity": 40, "unit": "g" }
+    ]
+  }
+]

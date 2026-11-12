@@ -1,0 +1,17 @@
+[build]
+command = "pnpm --filter client build"
+publish = "client/dist"
+environment = { NODE_VERSION = "24" }
+
+[functions]
+directory = "functions"
+
+[dev]
+command = "pnpm -C client dev"
+targetPort = 3000
+framework = "#custom"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200

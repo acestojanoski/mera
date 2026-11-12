@@ -1,0 +1,80 @@
+.calculator {
+    border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
+    box-shadow: 0 18px 40px -30px var(--accent);
+}
+
+.field {
+    display: grid;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.stepper {
+    display: flex;
+    align-items: stretch;
+    gap: 0.4rem;
+}
+
+.stepper button {
+    width: 2.5rem;
+    border: 1px solid var(--border);
+    border-radius: 0.55rem;
+    background: var(--surface);
+    font-size: 1.15rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        border-color 0.15s ease,
+        background-color 0.15s ease;
+}
+
+.stepper button:hover {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.stepper input {
+    width: 5.5rem;
+    padding: 0.55rem 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 0.55rem;
+    background: var(--bg);
+    color: inherit;
+    text-align: center;
+    font-size: 1.05rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.stepper input::-webkit-outer-spin-button,
+.stepper input::-webkit-inner-spin-button {
+    margin: 0;
+    appearance: none;
+}
+
+.stepper input[type="number"] {
+    appearance: textfield;
+}
+
+.unit {
+    align-self: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.scalePill {
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent-ink);
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.ingredientList {
+    margin-top: 0.25rem;
+}

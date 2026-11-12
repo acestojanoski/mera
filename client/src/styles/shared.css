@@ -1,0 +1,51 @@
+/* Shared styling primitives used by more than one component. */
+
+.section-label,
+.eyebrow {
+    color: var(--muted);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.section-label {
+    margin-bottom: 0.25rem;
+}
+
+.card {
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    margin-top: 0.15rem;
+    font-size: 1.1rem;
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 0.875rem;
+}
+
+.error {
+    color: var(--danger);
+    font-size: 0.875rem;
+}
+
+@media (max-width: 860px) {
+    .section-label {
+        display: none;
+    }
+}
