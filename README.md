@@ -30,9 +30,20 @@ Other scripts: `pnpm build`, `pnpm build:server`, `pnpm start:server`, `pnpm lin
 
 ## API
 
-| Method | Path | Description |
-| --- | --- | --- |
-| GET | `/api/ping` | Health check |
-| GET | `/api/recipes` | List recipes (sorted by name) |
-| GET | `/api/recipes/:id` | Get a recipe |
-| GET | `/api/recipes/:id/ingredients?targetYield=N` | Ingredients scaled to target yield |
+| Method | Path                                         | Description                        |
+| ------ | -------------------------------------------- | ---------------------------------- |
+| GET    | `/api/ping`                                  | Health check                       |
+| GET    | `/api/recipes`                               | List recipes (sorted by name)      |
+| GET    | `/api/recipes/:id`                           | Get a recipe                       |
+| GET    | `/api/recipes/:id/ingredients?targetYield=N` | Ingredients scaled to target yield |
+
+## Caching
+
+Recipe and ingredient responses opt into browser and Netlify CDN caching via
+`Cache-Control` and `Netlify-CDN-Cache-Control`: one hour fresh, with a one-day
+`stale-while-revalidate` window. The ingredients response sets
+`Netlify-Vary: query=targetYield`, so unrelated query parameters (for example,
+tracking parameters) share a cache entry. Error responses are never cached.
+
+Because the data is static JSON that changes only on deploy, Netlify's automatic
+deploy invalidation keeps cached responses in sync.
