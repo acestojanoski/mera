@@ -3,12 +3,15 @@ import { fetchCalculatedIngredients } from "../api/recipes";
 import type { GetRecipeIngredientsResponse } from "../api/types";
 import type { ApiCallError } from "../api/client";
 import { queryKeys } from "../utils/query-keys";
+import { useDebouncedValue } from "./use-debounced-value";
 
 export function useRecipeIngredients(
   recipeId: string,
   targetYield: number | null,
 ) {
-  const shouldFetch = targetYield !== null && targetYield > 0;
+  const debouncedTargetYield = useDebouncedValue(targetYield);
+
+  const shouldFetch = debouncedTargetYield !== null && debouncedTargetYield > 0;
 
   const { data, error, isLoading } = useSWR<
     GetRecipeIngredientsResponse,
@@ -17,13 +20,13 @@ export function useRecipeIngredients(
     shouldFetch
       ? queryKeys.recipeIngredients({
           recipeId,
-          targetYield,
+          targetYield: debouncedTargetYield,
         })
       : null,
     {
       keepPreviousData: true,
       fetcher: () =>
-        fetchCalculatedIngredients(recipeId, targetYield as number),
+        fetchCalculatedIngredients(recipeId, debouncedTargetYield as number),
     },
   );
 
